@@ -1,6 +1,6 @@
 # simple_upload
 
-Simpel webbased software for upload a less of data.
+Simple web-based software for uploading multiple files.
 
 ## Start
 
