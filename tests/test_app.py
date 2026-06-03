@@ -38,8 +38,8 @@ class UploadAppTests(unittest.TestCase):
         zip_response = self.client.get("/download")
         self.assertEqual(zip_response.status_code, 200)
 
-        archive = zipfile.ZipFile(BytesIO(zip_response.data))
-        self.assertEqual(sorted(archive.namelist()), ["a.txt", "b.txt"])
+        with zipfile.ZipFile(BytesIO(zip_response.data)) as archive:
+            self.assertEqual(sorted(archive.namelist()), ["a.txt", "b.txt"])
 
 
 if __name__ == "__main__":
